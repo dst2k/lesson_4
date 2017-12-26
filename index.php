@@ -1,3 +1,49 @@
+<?php
+$menu = [
+	[
+		'url' => '/',
+		'title' => 'Home'
+	],
+	[
+		'url' => '/about',
+		'title' => 'About',
+		'submenu' => [
+			[
+				'url' => '/info',
+				'title' => 'Information',
+				'subsubmenu' => [
+					[
+					'url' => '/structure',
+					'title' => 'Company structure'
+					],
+					[
+					'url' => '/goals',
+					'title' => 'Our goals'
+					]
+
+				]
+			],
+			[
+				'url' => '/contact_us',
+				'title' => 'Contact us'
+			],
+			[
+				'url' => '/map',
+				'title' => 'Map'
+			]
+		]
+	],
+	[
+		'url' => '/projects',
+		'title' => 'Projects'
+	],
+	[
+		'url' => '/portfolio',
+		'title' => 'Portfolio'
+	]
+];
+
+?>
 <!DOCTYPE HTML>
 <!--
 	Escape Velocity by HTML5 UP
@@ -29,6 +75,30 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
+									<?php foreach($menu as $item) { ?>
+										<li>
+											<a href="<?php echo $item['url'] ?>"><?php echo $item['title'] ?></a>
+											<?php if(isset($item['submenu']) AND !empty($item['submenu'])) { ?>
+											<ul>
+												<?php foreach($item['submenu'] as $subitem) { ?>
+													<li>
+														<a href="<?php echo $subitem['url'] ?>"><?php echo $subitem['title'] ?></a>
+														<?php if(isset($subitem['subsubmenu']) AND !empty($subitem['subsubmenu'])) { ?>
+														<ul>
+															<?php foreach($subitem['subsubmenu'] as $subsubitem) { ?>
+																<li>
+																	<a href="<?php echo $subsubitem['url'] ?>"><?php echo $subsubitem['title'] ?></a>
+
+																</li>
+															<?php } ?>				
+														</ul>
+														<?php } ?>
+													</li>
+												<?php } ?>				
+											</ul>
+											<?php } ?>
+										</li>
+									<?php } ?>
 									<li class="current"><a href="index.html">Home</a></li>
 									<li>
 										<a href="#">Dropdown</a>
