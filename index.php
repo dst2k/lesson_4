@@ -43,6 +43,53 @@ $menu = [
 	]
 ];
 
+
+
+
+$features = [
+	[
+		'title' => 'Mattis velit diam vulputate',
+		'icon' => 'fa-comment',
+		'description' => 'Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.'
+
+	],
+
+	[
+		'title' => 'Lorem ipsum dolor sit veroeros',
+		'icon' => 'fa-refresh',
+		'description' => 'Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.'
+	],
+
+	[
+		'title' => 'Pretium phasellus justo lorem',
+		'icon' => 'fa-picture-o',
+		'description' => 'Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.'
+
+	],
+
+	[
+		'title' => 'Tempus sed pretium orci',
+		'icon' => 'fa-cog',
+		'description' => 'Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.'
+
+	],
+
+	[
+		'title' => 'Aliquam consequat et feugiat',
+		'icon' => 'fa-wrench',
+		'description' => 'Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.'
+
+	],
+
+	[
+		'title' => 'Dolore laoreet aliquam mattis',
+		'icon' => 'fa-check',
+		'description' => 'Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.'
+
+	]
+];
+
+
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -164,48 +211,32 @@ $menu = [
 								</header>
 								<div class="feature-list">
 									<div class="row">
-										<div class="6u 12u(mobile)">
+										<?php $i = 0; ?>
+										<?php if (is_array($features)): ?>
+
+										<?php foreach ($features as $feature): ?>
+											<div class="6u 12u(mobile)">
 											<section>
-												<h3 class="icon fa-comment">Mattis velit diam vulputate</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
+												<h3 class="icon <?=$feature['icon'] ?>"><?=
+												$feature['title'] ?></h3>
+												<p><?=$feature['description'] ?></p>
 											</section>
-										</div>
-										<div class="6u 12u(mobile)">
-											<section>
-												<h3 class="icon fa-refresh">Lorem ipsum dolor sit veroeros</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-											</section>
-										</div>
+											</div>
+											<?php if((++$i) % 2 == 0 AND $i == count($features)): ?>
 									</div>
 									<div class="row">
-										<div class="6u 12u(mobile)">
-											<section>
-												<h3 class="icon fa-picture-o">Pretium phasellus justo lorem</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-											</section>
-										</div>
-										<div class="6u 12u(mobile)">
-											<section>
-												<h3 class="icon fa-cog">Tempus sed pretium orci</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-											</section>
-										</div>
-									</div>
-									<div class="row">
-										<div class="6u 12u(mobile)">
-											<section>
-												<h3 class="icon fa-wrench">Aliquam consequat et feugiat</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-											</section>
-										</div>
-										<div class="6u 12u(mobile)">
-											<section>
-												<h3 class="icon fa-check">Dolore laoreet aliquam mattis</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-											</section>
-										</div>
-									</div>
-								</div>
+									<?php endif; ?>
+								<?php endforeach; ?>
+							<?php endif; ?>
+							</div>
+
+
+
+
+
+
+
+
 								<ul class="actions actions-centered">
 									<li><a href="#" class="button style1 big">Get Started</a></li>
 									<li><a href="#" class="button style2 big">More Info</a></li>
@@ -299,53 +330,105 @@ $menu = [
 							</div>
 							<div class="6u 12u(mobile)">
 
-								<!-- Contact -->
-									<section class="feature-list small">
-										<div class="row">
-											<div class="6u 12u(mobile)">
-												<section>
-													<h3 class="icon fa-home">Mailing Address</h3>
-													<p>
-														Untitled Corporation<br />
-														1234 Somewhere Rd #987<br />
-														Nashville, TN 00000-0000
-													</p>
-												</section>
-											</div>
-											<div class="6u 12u(mobile)">
-												<section>
-													<h3 class="icon fa-comment">Social</h3>
-													<p>
-														<a href="#">@untitled-corp</a><br />
-														<a href="#">linkedin.com/untitled</a><br />
-														<a href="#">facebook.com/untitled</a>
-													</p>
-												</section>
-											</div>
-										</div>
-										<div class="row">
-											<div class="6u 12u(mobile)">
-												<section>
-													<h3 class="icon fa-envelope">Email</h3>
-													<p>
-														<a href="#">info@untitled.tld</a>
-													</p>
-												</section>
-											</div>
-											<div class="6u 12u(mobile)">
-												<section>
-													<h3 class="icon fa-phone">Phone</h3>
-													<p>
-														(000) 555-0000
-													</p>
-												</section>
-											</div>
-										</div>
-									</section>
+								
 
-							</div>
-						</div>
-						<hr />
+
+<?php
+	$contacts = [
+	[
+	'type' => 'address',
+	'icon' => 'fa-home',
+	'title' => 'Mailing Address',
+	'content' => 'Untitled Corporation
+		1234 Somewhere Rd #987
+		Nashville, TN 00000-0000
+	'
+	],
+	[
+	'type' => 'social',
+	'icon' => 'fa-comment',
+	'title' => 'Social',
+	'content' => '
+		@untitled-corp
+		linkedin.com/untitled
+		facebook.com/untitled
+	'
+	],
+
+	[
+	'type' => 'email',
+	'icon' => 'fa-envelope',
+	'title' => 'Email',
+	'content' => '
+		info@untitled.tld
+	'
+	],
+
+	[
+	'type' => 'phone',
+	'icon' => 'fa-phone',
+	'title' => 'Phone',
+	'content' => '
+		(000) 555-0000
+	'
+	]
+	];
+?>
+
+
+
+								<!-- Contact -->
+						<section class="feature-list small">
+                                        <div class="row">
+                                            <?php $i = 0; ?>
+                                            <?php foreach($contacts as $contact): ?>
+                                                <?php
+                                                    switch ($contact['type']) {
+                                                        case 'address':
+                                                            $contact['content'] = str_replace("\n", '<br/>', $contact['content']);
+                                                            break;
+                                                        case 'social':
+                                                            $content = '';
+                                                            $links = explode("\n", $contact['content']);
+
+                                                            foreach($links as $link) {
+                                                                $content = $content . '<a href="' . $link . '">' . $link . '</a>';
+                                                            }
+
+
+                                                        case 'email':
+                                                            $content = '';
+                                                            $links = explode("\n", $contact['content']);
+
+                                                            foreach($links as $link) {
+                                                                $content = $content . '<a href="' . $link . '">' . $link . '</a>';
+                                                            }
+                                                             
+
+                                                            $contact['content'] = $content;
+                                                            break;
+                                                        default:
+                                                            
+                                                            break;
+                                                    }
+                                                ?>
+                                                <div class="6u 12u(mobile)">
+                                                    <section>
+                                                        <h3 class="icon <?=$contact['icon'] ?>"><?=$contact['title'] ?></h3>
+                                                        <p><?=$contact['content'] ?></p>
+                                                    </section>
+                                                </div>
+                                                <?php if((++$i) % 2 == 0 AND $i != count($contacts)): ?>
+                                                    </div>
+                                                    <div class="row">
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </section>
+
+
+
+
 					</div>
 					<div id="copyright">
 						<ul>
